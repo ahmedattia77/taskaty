@@ -34,7 +34,7 @@ class LocalStorage {
     try {
       return preferencesInstance.get(key);
     } catch (e) {
-      throw Exception(e);
+      return null;
     }
   }
 }
