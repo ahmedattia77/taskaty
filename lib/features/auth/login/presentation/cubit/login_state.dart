@@ -15,6 +15,5 @@ final class LoginSuccess extends LoginState {
 
 final class LoginError extends LoginState {
   final String errro;
-  final DateTime time;
-  LoginError({required this.errro}) : time = DateTime.now();
+  LoginError({required this.errro});
 }
