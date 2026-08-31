@@ -20,6 +20,7 @@ class LoginRepo {
         data: userToJson.toJson(),
       );
       _saveUserToken(value: response.data['data']?['token']);
+      _saveUserName(value: response.data['data']?['user']?['name']);
       return Right(AuthLoginResponseModel.fromJson(response.data));
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioException(e));
@@ -31,4 +32,8 @@ class LoginRepo {
 
 void _saveUserToken({required String value}) {
   LocalStorage.saveData(key: KeyConst.token, value: value);
+}
+
+void _saveUserName({required String value}) {
+  LocalStorage.saveData(key: KeyConst.userName, value: value);
 }

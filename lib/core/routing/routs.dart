@@ -3,4 +3,5 @@ class Routes {
   static const String registerScreenRoute = 'registerRout';
   static const String homeScreenRoute = 'homeScreen';
   static const String welcomeScreenRoute = 'welcomeScreen';
+  static const String addTaskScreenRoute = 'addTaskScreenRoute';
 }

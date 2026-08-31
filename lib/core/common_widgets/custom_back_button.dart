@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
+  final String? pageNAme;
+  const CustomBackButton({super.key, this.pageNAme});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,13 @@ class CustomBackButton extends StatelessWidget {
           size: 18.sp,
           color: Theme.of(context).iconTheme.color,
         ),
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => pageNAme != null
+            ? Navigator.pushNamedAndRemoveUntil(
+                context,
+                pageNAme!,
+                (e) => false,
+              )
+            : Navigator.pop(context),
       ),
     );
   }

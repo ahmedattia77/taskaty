@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taskaty/core/constants/app_const/key_const.dart';
+import 'package:taskaty/core/services/local_storage.dart';
 import 'package:taskaty/features/welcome/presentation/ui/widgets/theme_switch_button.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
@@ -7,6 +9,8 @@ class HomeHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String userName =
+        (LocalStorage.getData(key: KeyConst.userName) as String?) ?? 'User';
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -14,7 +18,7 @@ class HomeHeaderWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello, User 👋',
+              'Hello, $userName 👋',
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(fontSize: 22.sp),

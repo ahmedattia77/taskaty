@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taskaty/core/theme/app_colors.dart';
-import 'package:taskaty/features/home/presentation/cubit/home_cubit.dart';
+import 'package:taskaty/features/home/presentation/cubit/home/home_cubit.dart';
 import 'package:taskaty/features/home/presentation/ui/widgets/task_item_widget.dart';
 
 class TasksListViewBuilder extends StatelessWidget {
