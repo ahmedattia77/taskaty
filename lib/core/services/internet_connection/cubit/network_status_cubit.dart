@@ -14,7 +14,7 @@ class NetworkStatusCubit extends Cubit<NetworkStatusState> {
   }
 
   void _listenToNetwork() {
-    _subscription = InternetConnection().onStatusChange.listen((status) {
+    _subscription = InternetConnection().onStatusChange.listen((status) async {
       if (isClosed) return;
       switch (status) {
         case InternetStatus.connected:

@@ -8,7 +8,15 @@ class GetTasksUseCase {
 
   GetTasksUseCase(this.taskRepo);
 
-  Future<Either<Failure, TaskResponseModel>> call() async {
-    return await taskRepo.getTasks();
+  Future<Either<Failure, TaskResponseModel>> call({
+    String? startDate,
+    String? endDate,
+    String? priority,
+  }) async {
+    return await taskRepo.getTasks(
+      startDate: startDate,
+      endDate: endDate,
+      priority: priority,
+    );
   }
 }

@@ -6,7 +6,9 @@ import 'package:taskaty/core/services/service_locator.dart';
 import 'package:taskaty/core/theme/cubit/theme_cubit.dart';
 import 'package:taskaty/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:taskaty/features/auth/login/presentation/ui/pages/login_screen.dart';
-import 'package:taskaty/features/home/presentation/cubit/home_cubit.dart';
+import 'package:taskaty/features/home/presentation/cubit/add_task/add_task_cubit.dart';
+import 'package:taskaty/features/home/presentation/cubit/home/home_cubit.dart';
+import 'package:taskaty/features/home/presentation/ui/pages/add_task_screen.dart';
 import 'package:taskaty/features/home/presentation/ui/pages/home_screen.dart';
 import 'package:taskaty/features/welcome/presentation/ui/pages/welcome_screen.dart';
 
@@ -37,6 +39,14 @@ class AppRouter {
       case Routes.registerScreenRoute:
         return MaterialPageRoute(
           builder: (context) => Center(child: Text("comming soon")),
+        );
+
+      case Routes.addTaskScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AddTaskCubit>(),
+            child: AddTaskScreen(),
+          ),
         );
 
       case Routes.welcomeScreenRoute:
